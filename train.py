@@ -19,6 +19,25 @@ to_list = lambda t: t.cpu().data.numpy().tolist()
 
 
 def main():
+"""
+This script trains a semi-supervised model on the CIFAR-10 dataset using ResNet-26 architecture.
+The model is trained with a combination of labeled and unlabeled data (out-of-distribution data).
+Performance is measured using average precision score and ROC AUC score on a validation dataset.
+
+Available Functions:
+
+main: The main function that initializes the training and evaluation loop.
+Usage:
+python <script_name>.py --[options]
+
+Options:
+--dataset: The dataset to use, e.g., "cifar10" (default: "cifar10").
+--model: The model type to use, e.g., "adib".
+--[other_options]: See the argument parser for other configurable options.
+
+Example:
+python <script_name>.py --dataset cifar10 --model adib
+"""
     torch.backends.cudnn.benchmark = True
 
     parser = get_default_parser()
